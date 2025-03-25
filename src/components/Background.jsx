@@ -1,5 +1,3 @@
-"use client"
-
 import { motion, useMotionValue, useSpring } from "framer-motion"
 import { useEffect } from "react"
 
@@ -31,7 +29,7 @@ export function Background() {
   }, [mouseX, mouseY])
 
   return (
-    <motion.div className="fixed inset-0 z-0">
+    <motion.div className="fixed inset-0 -z-10">
       <div className="absolute inset-0 bg-black" />
       <motion.div
         className="absolute inset-0"
@@ -49,4 +47,3 @@ export function Background() {
     </motion.div>
   )
 }
-
