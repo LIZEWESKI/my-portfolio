@@ -9,7 +9,7 @@ const App = () => {
     <div className="min-h-svh ">
       <Background />
       <Header />
-      <main>
+      <main className="space-y-2">
         <Hero />
         <Timeline />
         <Skills/>

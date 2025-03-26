@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import PatImage from "../assets/Pat_Picture.webp"
 export function Hero() {
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center items-center pt-20">
+    <section className="min-h-[90vh] flex flex-col justify-center items-center pt-20 mb-4">
       <div className="container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

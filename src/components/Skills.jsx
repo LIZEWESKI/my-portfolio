@@ -1,92 +1,77 @@
-import { useRef, useEffect, useState } from "react"
+"use client"
+
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { skills } from "../data/skills"
+// Since you didn't provide the skills data, I'll create a placeholder
+// You can replace this with your actual skills data import
+// const skills = [
+//   { name: "JavaScript", icon: "JS" },
+//   { name: "React", icon: "⚛️" },
+//   { name: "React Router", icon: "🔀" },
+//   { name: "Tailwind", icon: "🌬️" },
+//   { name: "Git", icon: "🔄" },
+//   { name: "PHP", icon: "🐘" },
+//   { name: "MySQL", icon: "🗄️" },
+//   { name: "Laravel", icon: "🔺" },
+//   { name: "InertiaJs", icon: "⚡" },
+// ]
 
 export function Skills() {
-  const containerRef = useRef(null)
-  const [isHovered, setIsHovered] = useState(false)
-  const [containerWidth, setContainerWidth] = useState(0)
-  const [contentWidth, setContentWidth] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (containerRef.current) {
-      setContainerWidth(containerRef.current.offsetWidth)
-      setContentWidth(containerRef.current.scrollWidth)
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768)
     }
-
-    const handleResize = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth)
-        setContentWidth(containerRef.current.scrollWidth)
-      }
+    checkIfMobile()
+    window.addEventListener("resize", checkIfMobile)
+    return () => {
+      window.removeEventListener("resize", checkIfMobile)
     }
-
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  const distance = contentWidth - containerWidth
-
   return (
-    <section className="px-20 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-4 mb-12">
-        <h2 className="text-3xl font-bold text-center">My Tech Stack</h2>
-        <p className="text-muted-foreground text-center mt-4 max-w-2xl mx-auto">
-          Technologies and tools I've mastered throughout my development journey.
-        </p>
-      </div>
+    <section>
+      <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto bg-background">
+          <div className="grid md:grid-cols-3 grid-cols-2 border border-border">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className={`flex items-center justify-center h-40 border border-border col-span-2 md:col-span-3`}
+            >
+              <h2 className="text-4xl font-bold text-[#ededed] px-4 text-center">
+                Technologies and tools I've mastered
+              </h2>
+            </motion.div>
 
-      <div 
-        ref={containerRef} 
-        className="relative overflow-hidden"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {/* Left gradient shade */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10"></div>
-        
-        {/* Right gradient shade */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10"></div>
-        
-        <motion.div 
-          className="flex items-center py-8 px-16"
-          animate={{
-            x: isHovered ? 0 : [-distance, 0]
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 20,
-              ease: "linear",
-            }
-          }}
-        >
-          {/* First set of skills */}
-          {skills.map((skill, index) => (
-            <div 
-              key={`skill-${index}`} 
-              className="flex flex-col items-center justify-center mx-8"
-            >
-              <div className="w-16 h-16 flex items-center justify-center mb-3">
-                {skill.icon}
-              </div>
-            </div>
-          ))}
-          
-          {/* Duplicate set for seamless looping */}
-          {skills.map((skill, index) => (
-            <div 
-              key={`skill-duplicate-${index}`} 
-              className="flex flex-col items-center justify-center mx-8"
-            >
-              <div className="w-16 h-16 flex items-center justify-center mb-3">
-                {skill.icon}
-              </div>
-            </div>
-          ))}
-        </motion.div>
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="flex items-center justify-center h-40 border border-border cursor-pointer hover:bg-card"
+              >
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="cursor-pointer">{skill.icon}</TooltipTrigger>
+                    <TooltipContent>
+                      <p>{skill.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
 }
+
