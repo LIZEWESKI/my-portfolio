@@ -1,8 +1,10 @@
 import { Background } from "./components/Background.jsx"
 import { Header } from "./components/Header"
 import { Hero } from "./components/Hero"
-import { Skills } from "./components/Skills.jsx"
 import { Timeline } from "./components/Timeline"
+import { Skills } from "./components/Skills"
+import { Projects } from "./components/Projects"
+import { CodeSnippets } from "./components/CodeSnippets.jsx"
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
         <Hero />
         <Timeline />
         <Skills/>
+        <Projects/>
+        <CodeSnippets />
       </main>
     </div>
   )

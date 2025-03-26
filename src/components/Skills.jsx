@@ -1,37 +1,7 @@
-"use client"
-
-import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { skills } from "../data/skills"
-// Since you didn't provide the skills data, I'll create a placeholder
-// You can replace this with your actual skills data import
-// const skills = [
-//   { name: "JavaScript", icon: "JS" },
-//   { name: "React", icon: "⚛️" },
-//   { name: "React Router", icon: "🔀" },
-//   { name: "Tailwind", icon: "🌬️" },
-//   { name: "Git", icon: "🔄" },
-//   { name: "PHP", icon: "🐘" },
-//   { name: "MySQL", icon: "🗄️" },
-//   { name: "Laravel", icon: "🔺" },
-//   { name: "InertiaJs", icon: "⚡" },
-// ]
-
 export function Skills() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkIfMobile()
-    window.addEventListener("resize", checkIfMobile)
-    return () => {
-      window.removeEventListener("resize", checkIfMobile)
-    }
-  }, [])
-
   return (
     <section>
       <div className="container mx-auto px-4">
