@@ -1,10 +1,10 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Github, ExternalLink, Play, Pause, ChevronRight, X, ArrowRight } from "lucide-react"
 import RickNdMorty from "../assets/rick-nd-morty.png"
 import RickNdMortyOriginal from "../assets/rick-nd-morty-original.png"
 import Noir from "../assets/noir.png"
-import NoirVideo from "../assets/noir-1.mp4"
+import NoirVideo from "../assets/Noir-2.mp4"
 export function Projects() {
   const [activeProject, setActiveProject] = useState(null)
   const [videoModal, setVideoModal] = useState(false)
@@ -55,21 +55,45 @@ export function Projects() {
   const toggleVideoPlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
-        videoRef.current.pause()
+        const pausePromise = videoRef.current.pause()
+        setIsPlaying(false)
       } else {
-        videoRef.current.play()
+        const playPromise = videoRef.current.play()
+
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true)
+            })
+            .catch((error) => {
+              console.error("Video playback failed:", error)
+              setIsPlaying(false)
+            })
+        }
       }
-      setIsPlaying(!isPlaying)
     }
   }
 
   const openVideoModal = () => {
     setVideoModal(true)
-    // When modal opens, we'll auto-play the video
     setTimeout(() => {
       if (videoRef.current) {
-        videoRef.current.play()
-        setIsPlaying(true)
+        videoRef.current.load()
+
+        setTimeout(() => {
+          const playPromise = videoRef.current.play()
+
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                setIsPlaying(true)
+              })
+              .catch((error) => {
+                console.error("Video playback failed:", error)
+                setIsPlaying(false)
+              })
+          }
+        }, 300)
       }
     }, 300)
   }
@@ -82,8 +106,18 @@ export function Projects() {
     setVideoModal(false)
   }
 
+  useEffect(() => {
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.pause()
+        videoRef.current.src = ""
+        videoRef.current.load()
+      }
+    }
+  }, [])
+
   return (
-    <section className="py-20" id="projects">
+    <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,7 +146,6 @@ export function Projects() {
               onMouseEnter={() => setActiveProject(project.id)}
               onMouseLeave={() => setActiveProject(null)}
             >
-              
               <div className="absolute top-4 left-4 z-20">
                 <span
                   className={`px-3 py-1 text-xs font-medium rounded-full ${
@@ -137,12 +170,10 @@ export function Projects() {
                 )}
               </div>
 
-              
               {project.isOriginal && (
                 <div className="absolute -top-12 left-8 h-12 w-0.5 bg-primary/50 hidden md:block"></div>
               )}
 
-              
               {project.isOriginal && (
                 <div className="absolute -top-6 left-8 transform -translate-x-1/2 hidden md:flex items-center justify-center">
                   <div className="bg-card border border-primary/50 rounded-full p-1">
@@ -152,7 +183,6 @@ export function Projects() {
               )}
 
               <div className="grid md:grid-cols-2 gap-0">
-                
                 <div className="relative aspect-video md:aspect-auto overflow-hidden">
                   <img
                     src={project.image || "/placeholder.svg"}
@@ -161,7 +191,7 @@ export function Projects() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent md:bg-gradient-to-t md:from-black/80 md:via-black/60 md:to-transparent" />
 
-                  
+                  {/* Play button for video demo */}
                   {project.videoDemo && (
                     <button
                       onClick={openVideoModal}
@@ -173,7 +203,6 @@ export function Projects() {
                   )}
                 </div>
 
-                
                 <div className="relative p-6 md:p-8 flex flex-col">
                   <h3 className="text-2xl font-bold mb-3 text-foreground">{project.title}</h3>
 
@@ -183,7 +212,7 @@ export function Projects() {
                     {project.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 text-xs rounded-full bg-primary/10 border border-primary/20"
+                        className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary-foreground border border-primary/20"
                       >
                         {tech}
                       </span>
@@ -289,24 +318,28 @@ export function Projects() {
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover"
-                  src={NoirVideo}
-                  poster={Noir}
+                  src={NoirVideo} 
+                  poster={Noir} 
+                  preload="auto"
+                  playsInline
                   controls={false}
                   onEnded={() => setIsPlaying(false)}
                 >
                   Your browser does not support the video tag.
                 </video>
-
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                  onClick={toggleVideoPlay}
+                >
                   <button
-                    onClick={toggleVideoPlay}
-                    className={`w-16 h-16 flex items-center justify-center rounded-full bg-primary/80 text-primary-foreground hover:bg-primary transition-colors ${isPlaying ? "opacity-0 hover:opacity-100" : "opacity-100"}`}
+                    className={`w-16 h-16 flex items-center justify-center rounded-full bg-primary/80 text-primary-foreground hover:bg-primary transition-colors ${
+                      isPlaying ? "opacity-0 hover:opacity-100" : "opacity-100"
+                    }`}
                   >
                     {isPlaying ? <Pause size={24} /> : <Play size={24} className="ml-1" />}
                   </button>
                 </div>
 
-                
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                   <div className="flex items-center justify-between">
                     <button onClick={toggleVideoPlay} className="flex items-center gap-2 text-white">
