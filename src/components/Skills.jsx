@@ -3,7 +3,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { skills } from "../data/skills"
 export function Skills() {
   return (
-    <section>
+    <section id="skills">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto bg-background">
           <div className="grid md:grid-cols-3 grid-cols-2 border border-border">

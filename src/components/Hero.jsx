@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import PatImage from "../assets/Pat_Picture.webp"
 export function Hero() {
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center items-center pt-20 mb-10">
+    <section className="min-h-[90vh] flex flex-col justify-center items-center pt-20 mb-10" id="hero">
       <div className="container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -19,9 +19,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 text-center"
         >
-          Badr Noukh
+          Badr Noukh <small className="text-sm text-muted-foreground">(Lizeweski)</small>
         </motion.h1>
 
         <motion.h2
@@ -58,7 +58,7 @@ export function Hero() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/badr-noukh-lizeweski/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"

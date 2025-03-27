@@ -4,7 +4,7 @@ import { Github, ExternalLink, Play, Pause, ChevronRight, X, ArrowRight } from "
 import RickNdMorty from "../assets/rick-nd-morty.png"
 import RickNdMortyOriginal from "../assets/rick-nd-morty-original.png"
 import Noir from "../assets/noir.png"
-import NoirVideo from "../assets/paypal-integration.mp4"
+import NoirVideo from "../assets/noir.mp4"
 export function Projects() {
   const [activeProject, setActiveProject] = useState(null)
   const [videoModal, setVideoModal] = useState(false)
@@ -83,7 +83,7 @@ export function Projects() {
   }
 
   return (
-    <section className="py-20">
+    <section className="py-20" id="projects">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

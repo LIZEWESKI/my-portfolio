@@ -2,13 +2,14 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 
 export function Header() {
-  const [activeTab, setActiveTab] = useState("about")
+  const [activeTab, setActiveTab] = useState("hero")
   const [isScrolled, setIsScrolled] = useState(false)
-
   const tabs = [
-    { id: "about", label: "About" },
+    { id: "hero", label: "About" },
+    { id: "timeline", label: "Journey" },
+    { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
-    { id: "experience", label: "Experience" },
+    { id: "contact", label: "Contact" },
   ]
 
   useEffect(() => {
@@ -16,9 +17,53 @@ export function Header() {
       setIsScrolled(window.scrollY > 20)
     }
 
+    const handleScrollForActiveSection = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 3
+      // Get all sections
+      const sections = tabs.map((tab) => {
+        const element = document.getElementById(tab.id)
+        if (!element) return { id: tab.id, top: 0, bottom: 0 }
+
+        const rect = element.getBoundingClientRect()
+        return {
+          id: tab.id,
+          top: rect.top + window.scrollY,
+          bottom: rect.bottom + window.scrollY,
+        }
+      })
+
+      // Find the current active section
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i]
+        if (scrollPosition >= section.top) {
+          setActiveTab(section.id)
+          break
+        }
+      }
+    }
+
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScrollForActiveSection)
+
+    // Initial check for active section
+    handleScrollForActiveSection()
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("scroll", handleScrollForActiveSection)
+    }
+  }, [tabs])
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 100,
+        behavior: "smooth",
+      })
+      setActiveTab(sectionId)
+    }
+  }
 
   return (
     <header
@@ -31,7 +76,7 @@ export function Header() {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => scrollToSection(tab.id)}
               className={`relative px-6 py-2 text-sm rounded-full transition-colors ${
                 activeTab === tab.id ? "text-foreground" : "text-muted-foreground hover:text-foreground/80"
               }`}
