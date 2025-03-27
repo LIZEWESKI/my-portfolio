@@ -50,7 +50,7 @@ export function Hero() {
           className="flex justify-center space-x-4"
         >
           <a
-            href="https://github.com"
+            href="https://github.com/LIZEWESKI/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 rounded-md bg-card border border-border hover:bg-card/80 transition-colors"

@@ -4,7 +4,7 @@ import { Github, ExternalLink, Play, Pause, ChevronRight, X, ArrowRight } from "
 import RickNdMorty from "../assets/rick-nd-morty.png"
 import RickNdMortyOriginal from "../assets/rick-nd-morty-original.png"
 import Noir from "../assets/noir.png"
-import NoirVideo from "../assets/noir.mp4"
+import NoirVideo from "../assets/noir-1.mp4"
 export function Projects() {
   const [activeProject, setActiveProject] = useState(null)
   const [videoModal, setVideoModal] = useState(false)

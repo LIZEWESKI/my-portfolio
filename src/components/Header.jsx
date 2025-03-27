@@ -6,8 +6,6 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const tabs = [
     { id: "hero", label: "About" },
-    { id: "timeline", label: "Journey" },
-    { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
   ]
