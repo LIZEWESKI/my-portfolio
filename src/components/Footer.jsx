@@ -18,7 +18,7 @@ export function Footer() {
   const handleDownloadCV = () => {
     setIsDownloading(true)
 
-    const cvPath = "/Yassine-CV.pdf"
+    const cvPath = "/badr-cv-resume.pdf"
     const link = document.createElement("a")
     link.href = cvPath
     link.download = "BadrNoukh-CV.pdf"
@@ -57,7 +57,7 @@ export function Footer() {
               onMouseLeave={() => setIsHovering(false)}
             >
               <Button
-                className="relative overflow-hidden group flex items-center gap-2"
+                className="relative overflow-hidden group flex items-center gap-2 cursor-pointer"
                 size="lg"
                 onClick={handleDownloadCV}
                 disabled={isDownloading}

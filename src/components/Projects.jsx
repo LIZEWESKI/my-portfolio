@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Github, ExternalLink, Play, Pause, ChevronRight, X, ArrowRight } from "lucide-react"
 import RickNdMorty from "../assets/rick-nd-morty.png"
 import RickNdMortyOriginal from "../assets/rick-nd-morty-original.png"
-import Noir from "../assets/noir.png"
+import Noir from "../assets/Noir.png"
 import NoirVideo from "../assets/Noir-2.mp4"
 export function Projects() {
   const [activeProject, setActiveProject] = useState(null)
@@ -212,7 +212,7 @@ export function Projects() {
                     {project.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary-foreground border border-primary/20"
+                        className="px-2 py-1 text-xs rounded-full bg-primary/10 border border-primary/20"
                       >
                         {tech}
                       </span>

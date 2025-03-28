@@ -17,7 +17,7 @@ export function Mentors() {
       description:
         "Simon's methodical approach to teaching JavaScript fundamentals and problem-solving techniques laid the groundwork for my development journey. His emphasis on clean code and version control practices continues to influence my work today.",
       icon: <Code className="w-5 h-5" />,
-      color: "blue",
+      color: "green",
       links: [
         { icon: <Youtube className="w-4 h-4" />, url: "https://www.youtube.com/c/supersimpledev", label: "YouTube" },
         { icon: <Github className="w-4 h-4" />, url: "https://github.com/SuperSimpleDev", label: "GitHub" },
@@ -86,8 +86,8 @@ export function Mentors() {
               onMouseLeave={() => setActiveMentor(null)}
             >
               <div className={`relative overflow-hidden rounded-xl border border-border/40 bg-card  transition-all duration-300 h-full flex flex-col ${
-                      mentor.color === "blue"
-                        ? "hover:border-blue-500/20"
+                      mentor.color === "green"
+                        ? "hover:border-green-500/20"
                         : mentor.color === "purple"
                           ? "hover:border-purple-500/20"
                           : "hover:border-red-500/20"
@@ -109,8 +109,8 @@ export function Mentors() {
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center mb-2
                     ${
-                      mentor.color === "blue"
-                        ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
+                      mentor.color === "green"
+                        ? "bg-green-500/20 text-green-300 border border-green-500/30"
                         : mentor.color === "purple"
                           ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
                           : "bg-red-500/20 text-red-300 border border-red-500/30"
@@ -125,8 +125,8 @@ export function Mentors() {
                         key={i}
                         className={`px-2 py-1 text-xs font-medium rounded-full 
                         ${
-                          mentor.color === "blue"
-                            ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
+                          mentor.color === "green"
+                            ? "bg-green-500/20 text-green-300 border border-green-500/30"
                             : mentor.color === "purple"
                               ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
                               : "bg-red-500/20 text-red-300 border border-red-500/30"
@@ -174,8 +174,8 @@ export function Mentors() {
                     <span
                       className={`text-xs font-medium 
                       ${
-                        mentor.color === "blue"
-                          ? "text-blue-400"
+                        mentor.color === "green"
+                          ? "text-green-400"
                           : mentor.color === "purple"
                             ? "text-purple-400"
                             : "text-red-400"
