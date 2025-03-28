@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Github, ExternalLink, Play, Pause, ChevronRight, X, ArrowRight } from "lucide-react"
 import RickNdMorty from "../assets/rick-nd-morty.png"
 import RickNdMortyOriginal from "../assets/rick-nd-morty-original.png"
-import Noir from "../assets/Noir.png"
+import Noir from "../assets/noir-banner.png"
 import NoirVideo from "../assets/Noir-2.mp4"
 export function Projects() {
   const [activeProject, setActiveProject] = useState(null)
