@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import PatImage from "../assets/Pat_Picture.webp"
+import Zarbadar from "../assets/Zarbadar.jpeg"
 export function Hero() {
   return (
     <section className="min-h-[90vh] flex flex-col justify-center items-center pt-20 mb-10" id="hero">
@@ -11,7 +11,7 @@ export function Hero() {
           className="mb-8"
         >
           <div className="w-48 h-48 mx-auto rounded-full border border-border overflow-hidden">
-            <img src={PatImage} alt="Profile" className="w-full h-full object-cover" />
+            <img src={Zarbadar} alt="Profile" className="w-full h-full object-cover" />
           </div>
         </motion.div>
 
