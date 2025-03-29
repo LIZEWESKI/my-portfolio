@@ -35,7 +35,7 @@ export function Contacts() {
     e.preventDefault()
     setIsSubmitting(true)
     try {
-        const response = await fetch("https://formsubmit.co/b5c48ea028180a8072ff745319f19eed", {
+        const response = await fetch("https://formsubmit.co/badrnoukh@gmail.com", {
             method: "POST",
             body: formState,
         });
