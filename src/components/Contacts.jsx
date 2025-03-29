@@ -36,6 +36,7 @@ export function Contacts() {
     const formData = new FormData(event.target);
 
     formData.append("access_key", "ec4d297c-f861-4aa6-96e0-20c22c65ce50");
+    formData.append("replyto", "badrnoukh@gmail.com");
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -48,7 +49,6 @@ export function Contacts() {
         },
         body: json
       }).then((res) => res.json());
-  
       if (res.success) {
         setIsSubmitting(false)
         setShowSuccess(true)
