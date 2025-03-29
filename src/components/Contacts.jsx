@@ -30,29 +30,59 @@ export function Contacts() {
     const { name, value } = e.target
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const onSubmit = async (event) => {
+    event.preventDefault();
     setIsSubmitting(true)
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "ec4d297c-f861-4aa6-96e0-20c22c65ce50");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
     try {
-        const response = await fetch("https://formsubmit.co/badrnoukh@gmail.com", {
-            method: "POST",
-            body: formState,
-        });
-        if (response.ok) {
-            setIsSubmitting(false)
-            setShowSuccess(true)
-            setTimeout(() => {
-            setShowSuccess(false)
-            setFormState({ name: "", email: "", message: "" })
-            }, 3000)
-          } else {
-            console.log("Failed to send message");
-          }
-    }catch(error) {
-        console.error("Error:", error);
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      }).then((res) => res.json());
+  
+      if (res.success) {
+        setIsSubmitting(false)
+        setShowSuccess(true)
+        setTimeout(() => {
+          setShowSuccess(false)
+          setFormState({ name: "", email: "", message: "" })
+        }, 3000)
+      }
+    }catch(e) {
+      console.error("Error:", e);
     }
-  }
+  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   setIsSubmitting(true)
+  //   try {
+  //       const response = await fetch("https://formsubmit.co/badrnoukh@gmail.com", {
+  //           method: "POST",
+  //           body: formState,
+  //       });
+  //       if (response.ok) {
+  //           setIsSubmitting(false)
+  //           setShowSuccess(true)
+  //           setTimeout(() => {
+  //           setShowSuccess(false)
+  //           setFormState({ name: "", email: "", message: "" })
+  //           }, 3000)
+  //         } else {
+  //           console.log("Failed to send message");
+  //         }
+  //   }catch(error) {
+  //       console.error("Error:", error);
+  //   }
+  // }
 
   const SuccessConfetti = () => {
     return (
@@ -225,7 +255,7 @@ export function Contacts() {
                     >
                       <h3 className="text-xl font-bold mb-6">Send Me a Message</h3>
 
-                      <form onSubmit={handleSubmit} className="space-y-4">
+                      <form onSubmit={onSubmit} className="space-y-4">
                         <div>
                           <label htmlFor="name" className="block text-sm font-medium mb-2">
                             Your Name
