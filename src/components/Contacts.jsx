@@ -61,29 +61,6 @@ export function Contacts() {
       console.error("Error:", e);
     }
   };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   setIsSubmitting(true)
-  //   try {
-  //       const response = await fetch("https://formsubmit.co/badrnoukh@gmail.com", {
-  //           method: "POST",
-  //           body: formState,
-  //       });
-  //       if (response.ok) {
-  //           setIsSubmitting(false)
-  //           setShowSuccess(true)
-  //           setTimeout(() => {
-  //           setShowSuccess(false)
-  //           setFormState({ name: "", email: "", message: "" })
-  //           }, 3000)
-  //         } else {
-  //           console.log("Failed to send message");
-  //         }
-  //   }catch(error) {
-  //       console.error("Error:", error);
-  //   }
-  // }
-
   const SuccessConfetti = () => {
     return (
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
