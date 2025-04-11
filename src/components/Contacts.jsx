@@ -145,15 +145,6 @@ export function Contacts() {
                             <Github size={16} />
                             <span>GitHub</span>
                           </a>
-                          <a
-                            href="https://www.linkedin.com/in/badr-noukh-lizeweski/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
-                          >
-                            <Linkedin size={16} />
-                            <span>LinkedIn</span>
-                          </a>
                         </div>
                       </div>
                     </div>
@@ -380,21 +371,6 @@ export function Contacts() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <a
-                            href="https://www.linkedin.com/in/badr-noukh-lizeweski/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
-                          >
-                            <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                              <Linkedin size={18} />
-                            </div>
-                            <div>
-                              <h4 className="font-medium">LinkedIn</h4>
-                              <p className="text-sm text-muted-foreground">Professional network</p>
-                            </div>
-                          </a>
-
-                          <a
                             href="https://github.com/LIZEWESKI"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -414,6 +390,16 @@ export function Contacts() {
                               <X size={18} />
                             </div>
                             <div>
+                              <h4 className="font-medium text-gray-400">LinkedIn</h4>
+                              <p className="text-sm text-gray-500">Not expected to be</p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border">
+                            <div className="w-10 h-10 rounded-full bg-gray-700/50 border border-gray-600 flex items-center justify-center text-gray-400 shrink-0">
+                              <X size={18} />
+                            </div>
+                            <div>
                               <h4 className="font-medium text-gray-400">Discord</h4>
                               <p className="text-sm text-gray-500">Coming soon</p>
                             </div>
@@ -423,7 +409,7 @@ export function Contacts() {
                         <div className="pt-4 mt-4 border-t border-border/40">
                           <h4 className="font-medium mb-3">Preferred Contact Method</h4>
                           <p className="text-sm text-muted-foreground">
-                            For professional inquiries, LinkedIn is the fastest way to reach me. For
+                            For professional inquiries, email is the fastest way to reach me. For
                             code-related discussions, GitHub is preferred.
                           </p>
                         </div>

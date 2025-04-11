@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import Zarbadar from "../assets/Zarbadar.jpeg"
+import { Github } from "lucide-react"
 export function Hero() {
   return (
     <section className="min-h-[90vh] flex flex-col justify-center items-center pt-20 mb-10" id="hero">
@@ -56,15 +57,8 @@ export function Hero() {
             className="px-4 py-2 rounded-md bg-card border border-border hover:bg-card/80 transition-colors"
           >
             GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/badr-noukh-lizeweski/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-          >
-            LinkedIn
-          </a>
+          </a> 
+          
         </motion.div>
       </div>
     </section>
