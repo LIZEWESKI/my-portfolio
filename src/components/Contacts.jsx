@@ -4,6 +4,7 @@ import { Send, MessageSquare, Github, Linkedin, Check, Sparkles, Star, X } from 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import Faq from "./Faq"
 
 export function Contacts() {
   const [formState, setFormState] = useState({
@@ -420,53 +421,7 @@ export function Contacts() {
               </div>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-16 max-w-3xl mx-auto"
-          >
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-2">Frequently Asked Questions</h3>
-              <p className="text-muted-foreground">Quick answers to common questions</p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="bg-card/50 border border-border/40 rounded-xl p-6">
-                <h4 className="font-bold mb-2">What is your hourly rate?</h4>
-                <p className="text-sm text-muted-foreground">
-                  My rates vary depending on project scope and complexity. I prefer to discuss requirements first to
-                  provide an accurate quote.
-                </p>
-              </div>
-
-              <div className="bg-card/50 border border-border/40 rounded-xl p-6">
-                <h4 className="font-bold mb-2">Do you work remotely?</h4>
-                <p className="text-sm text-muted-foreground">
-                  Yes, I work remotely with clients worldwide. I'm comfortable with various collaboration tools and
-                  communication platforms.
-                </p>
-              </div>
-
-              <div className="bg-card/50 border border-border/40 rounded-xl p-6">
-                <h4 className="font-bold mb-2">What is your availability?</h4>
-                <p className="text-sm text-muted-foreground">
-                  I'm currently available for freelance projects and part-time opportunities. My schedule is flexible
-                  for the right projects.
-                </p>
-              </div>
-
-              <div className="bg-card/50 border border-border/40 rounded-xl p-6">
-                <h4 className="font-bold mb-2">Can we schedule a call?</h4>
-                <p className="text-sm text-muted-foreground">
-                  Send me a message with your preferred time and platform, and I'll be happy to arrange a call to
-                  discuss your project.
-                </p>
-              </div>
-            </div>
-          </motion.div>
+          <Faq />
         </div>
       </div>
     </section>

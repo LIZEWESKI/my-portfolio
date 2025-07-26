@@ -15,7 +15,7 @@ export function Skills() {
               className={`flex items-center justify-center h-40 border border-border col-span-2 md:col-span-3`}
             >
               <h2 className="text-4xl font-bold text-[#ededed] px-4 text-center">
-                Technologies and tools I've mastered
+                Tools and technologies I'm (def not) an expert At
               </h2>
             </motion.div>
 

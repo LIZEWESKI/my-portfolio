@@ -138,7 +138,7 @@ export function Footer() {
             </a>
           </div>
 
-          <p className="mt-6 text-xs text-muted-foreground">Designed and built with passion</p>
+          <code className="mt-6 text-xs text-muted-foreground">I have no coffee, and I must code.</code>
         </div>
       </div>
     </footer>

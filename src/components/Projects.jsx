@@ -16,7 +16,7 @@ export function Projects() {
       id: 1,
       title: "Rick and Morty Multiverse Cards (Redesigned)",
       description:
-        "A React application exhibit characters from the Rick and Morty universe. This is the redesigned version using modern UI libraries for bettered user experience and developer workflow.",
+        "A React application exhibit characters from the Rick and Morty universe. This version has been redesigned with the use of modern UI libraries to improve developer workflow and user experience.",
       image: RickNdMorty,
       technologies: ["React", "React Router", "Tailwind CSS", "shadcn/ui", "Framer Motion", "React Query"],
       demoLink: "https://multiversecards.vercel.app/",
@@ -29,7 +29,7 @@ export function Projects() {
       id: 2,
       title: "Rick and Morty Explorer (Original)",
       description:
-        "The original version of my Rick and Morty character explorer built with React and pure CSS. This project express my foundational skills in React development and custom CSS styling without relying on UI libraries.",
+        "The original version of my Rick and Morty character explorer was initially created using React and only CSS. Without using UI libraries, this project showcases my fundamental abilities in React development and custom CSS styling.",
       image: RickNdMortyOriginal,
       technologies: ["React", "React Router", "Pure CSS", "Context API"],
       demoLink: "https://darth-ram.netlify.app/",
@@ -40,9 +40,9 @@ export function Projects() {
     },
     {
       id: 3,
-      title: "Noir Hotel Booking System",
+      title: "Booking System for the Noir Hotel",
       description:
-        "A modern, elegant hotel booking system with user authentication, room browsing, reservation management, and secure payment processing. Features an admin dashboard to manage rooms, reservations, and users.",
+        "A modern, contemporary hotel reservation system that offers secure payment processing, room browsing, reservation management, and user authentication. Includes an admin dashboard for controlling users, reservations, and rooms.",
       image: Noir,
       technologies: ["Laravel", "Inertia.js", "React", "Tailwind CSS", "MySQL", "PayPal API"],
       videoDemo: true,
@@ -128,7 +128,7 @@ export function Projects() {
         >
           <h2 className="text-4xl font-bold mb-4">My Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Showcasing my skills through real-world applications
+            That demonstrate my skills through real-world applications
           </p>
         </motion.div>
 
@@ -257,16 +257,13 @@ export function Projects() {
 
               {project.hasOriginal && (
                 <div className="px-6 py-3 bg-card border-t border-border/40 text-sm text-muted-foreground">
-                  <span className="font-medium text-primary">Evolution Note:</span> This is a redesigned version of my
-                  original Rick and Morty project, showcasing my growth in using modern UI libraries and improved
-                  architecture.
+                  <span className="font-medium text-primary">Evolution Note:</span> This is an updated version of my initial Rick and Morty project that highlights my development in the use of modern UI libraries and better architecture.
                 </div>
               )}
 
               {project.isOriginal && (
                 <div className="px-6 py-3 bg-card border-t border-border/40 text-sm text-muted-foreground">
-                  <span className="font-medium text-primary">Evolution Note:</span> This original version demonstrates
-                  my foundational skills with React and custom CSS, before adopting modern UI libraries.
+                  <span className="font-medium text-primary">Evolution Note:</span> Prior to implementing modern UI libraries, this initial version showcases my fundamental abilities with React and custom CSS.
                 </div>
               )}
             </motion.div>

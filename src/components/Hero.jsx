@@ -3,9 +3,9 @@ import Zarbadar from "../assets/Zarbadar.jpeg"
 import { Github } from "lucide-react"
 export function Hero() {
   return (
-    <section className="min-h-[90vh] flex flex-col justify-center items-center pt-20 mb-10" id="hero">
+    <section className="min-h-[90vh] flex flex-col justify-center items-center pt-20 mb-12" id="hero">
       <div className="container mx-auto px-4 text-center">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
@@ -14,13 +14,13 @@ export function Hero() {
           <div className="w-48 h-48 mx-auto rounded-full border border-border overflow-hidden">
             <img src={Zarbadar} alt="Profile" className="w-full h-full object-cover" />
           </div>
-        </motion.div>
+        </motion.div> */}
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 text-center"
+          className="text-6xl md:text-7xl lg:text-8xl font-bold mb-2 text-center"
         >
           Badr Noukh <small className="text-sm text-muted-foreground">(Lizeweski)</small>
         </motion.h1>
@@ -40,8 +40,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8"
         >
-          Passionate about building elegant, performant web applications with modern technologies. Specializing in
-          backend and full-stack development.
+          Enthusiastic about using modern technologies to create sophisticated, effective web applications. Focusing on full-stack and frontend development.
         </motion.p>
 
         <motion.div

@@ -15,7 +15,7 @@ export function Mentors() {
       image: Simon,
       expertise: ["JavaScript", "Algorithms", "Problem-Solving", "Git"],
       description:
-        "Simon's methodical approach to teaching JavaScript fundamentals and problem-solving techniques laid the groundwork for my development journey. His emphasis on clean code and version control practices continues to influence my work today.",
+        "The foundation for my development journey was established by Simon's methodical approach to teaching JavaScript fundamentals and problem-solving techniques. His focus on version control procedures and clean code still has an impact on my work today.",
       icon: <Code className="w-5 h-5" />,
       color: "green",
       links: [
@@ -32,7 +32,7 @@ export function Mentors() {
         image: BobZiroll,
         expertise: ["React", "React Router", "Frontend Development"],
         description:
-            "Bob's engaging teaching style made learning React an enjoyable experience. His project-based approach helped me understand component architecture and state management in a practical context, accelerating my growth as a frontend developer.",
+            "Learning React was enjoyable because of Bob's captivating teaching style. His project-based methodology sped up my development as a frontend developer by assisting me in comprehending component architecture and state management in a real-world setting.",
         icon: <BookOpen className="w-5 h-5" />,
         color: "purple",
         links: [
@@ -47,7 +47,7 @@ export function Mentors() {
       image: JeffreyWay,
       expertise: ["Laravel", "PHP", "MySQL", "Inertia.js"],
       description:
-        "Jeffrey's comprehensive approach to teaching backend development transformed my understanding of server-side programming. His Laravel tutorials and emphasis on testing and best practices have been instrumental in my growth as a full-stack developer.",
+        "My knowledge of server-side programming was revolutionized by Jeffrey's thorough approach to teaching backend development. My development as a full-stack developer has been greatly aided by his Laravel tutorials and emphasis on testing and best practices.",
       icon: <Database className="w-5 h-5" />,
       color: "red",
       links: [
@@ -205,7 +205,7 @@ export function Mentors() {
                 If I have seen further, it is by standing on the shoulders of giants. The knowledge and guidance from
                 these mentors has been instrumental in my development journey.
             </blockquote>
-            <footer className="text-sm text-primary">— Inspired by Sir Isaac Newton</footer>
+            <footer className="text-sm text-primary">— Inspired by Isaac Newton</footer>
           </blockquote>
         </motion.div>
       </div>
