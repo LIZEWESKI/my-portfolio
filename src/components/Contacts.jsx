@@ -421,7 +421,7 @@ export function Contacts() {
               </div>
             </motion.div>
           </div>
-          <Faq />
+          {/* <Faq /> */}
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { Code, FileCode, Database } from "lucide-react"
+import { Code, FileCode, Database, Cloud } from "lucide-react"
 export const timelineItems = [
     {
       period: "Apr 2023",
@@ -26,16 +26,24 @@ export const timelineItems = [
       period: "Nov 2024 – Feb 2025",
       title: "Backend Development",
       description:
-        "Learned PHP, MySQL, and Laravel (as API and with Inertia.js). Focused on backend development, authentication systems, database management, and full-stack concepts.",
+        "Learned PHP, MySQL, and Laravel (with Inertia.js). Focused on backend development, authentication systems, database management, and full-stack concepts.",
       icon: <Database className="w-5 h-5" />,
       side: "right",
     },
     {
-      period: "Mar 2025 – Present",
+      period: "Mar 2025 – Aug 2025",
       title: "Full-Stack Projects",
       description:
         "Building full-stack projects that integrate backend and frontend technologies. Developing entire web applications, from conception to implementation.",
       icon: <Code className="w-5 h-5" />,
       side: "left",
+    },
+    {
+      period: "Aug 2025 – Present",
+      title: "DevOps & Cloud Deployment",
+      description:
+        "Mastered containerization with Docker, deployed full-stack applications on Heroku, implemented CI/CD pipelines for automated testing and deployment. Configured cloud storage solutions using S3 with DigitalOcean and integrated Brevo for transactional email services.",
+      icon: <Cloud className="w-5 h-5" />,
+      side: "right",
     },
   ]
