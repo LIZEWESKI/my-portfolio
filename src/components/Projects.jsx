@@ -1,17 +1,18 @@
 import { motion } from "framer-motion"
-import { Github, ExternalLink, TrendingUp } from "lucide-react"
+import { Github, ExternalLink, Star, TrendingUp, Code2 } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import CarthsNoah from "../assets/carths-noah.png"
 import RickNdMortyMultiverse from "../assets/multiverse.png"
 import RickNdMortyCards from "../assets/rick-nd-morty-cards.png"
 import Noir from "../assets/noir.png"
 
 export function Projects() {
-
   const featuredProject = {
     id: 4,
     title: "Noir",
     description:
-      "A modern, elegant hotel booking system with user authentication, room browsing, reservation management, and secure payment processing. Features an admin dashboard to manage rooms, reservations, and users. This full-stack project showcases my ability to build complete, production-ready applications.",
+      "A stylish and up-to-date hotel booking system that lets users log in, browse rooms, manage reservations, and process payments safely. Includes an admin dashboard for managing rooms, reservations, and users. This full-stack project shows that I can make full applications that are ready for production.",
     image: Noir,
     technologies: ["Laravel", "Inertia.js", "React", "Tailwind CSS", "MySQL", "PayPal API"],
     demoLink: "https://noir.lizeweski.me",
@@ -26,7 +27,7 @@ export function Projects() {
       id: 1,
       title: "Carths Noah",
       description:
-        "My very first Rick and Morty character explorer built with vanilla HTML, JavaScript, and CSS. This foundational project showcases my initial understanding of web development and DOM manipulation without any frameworks or libraries.",
+        "This is the first Rick and Morty character explorer I made using only HTML, JavaScript, and CSS. This basic project shows what I knew about web development and DOM manipulation before I learned about any frameworks or libraries.",
       image: CarthsNoah,
       technologies: ["HTML", "Vanilla JavaScript", "CSS", "Rick & Morty API"],
       demoLink: "https://darthnoah.lizeweski.me/",
@@ -40,7 +41,7 @@ export function Projects() {
       id: 2,
       title: "Rick and Morty Cards",
       description:
-        "The second iteration of my Rick and Morty explorer built with React and React Router. This version demonstrates my growth in using component-based architecture and client-side routing while maintaining custom styling with pure CSS.",
+        "This is the second version of my Rick and Morty explorer that was built using React and React Router. This version shows how I've improved my use of client-side routing and component-based architecture while preserving unique styling using only CSS.",
       image: RickNdMortyCards,
       technologies: ["React", "React Router", "Pure CSS", "Context API"],
       demoLink: "https://darth-ram.netlify.app/",
@@ -54,7 +55,7 @@ export function Projects() {
       id: 3,
       title: "Rick and Morty Multiverse Cards",
       description:
-        "A feature-rich React application showcasing characters from the Rick and Morty universe. This is the redesigned version using modern UI libraries for enhanced user experience and developer workflow.",
+        "The Rick and Morty universe. This is the redesigned version using modern UI libraries for better UX and developer workflow.",
       image: RickNdMortyMultiverse,
       technologies: ["React", "React Router", "Tailwind CSS", "shadcn/ui", "Framer Motion", "React Query"],
       demoLink: "https://multiversecards.vercel.app/",
@@ -67,247 +68,264 @@ export function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12 text-center"
+          className="mb-16 max-w-2xl"
         >
-          <h2 className="text-4xl font-bold mb-4">My Projects</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Showcasing my skills through real-world applications
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4">My Projects</h2>
+          <p className="text-muted-foreground text-lg">
+            Showcasing my skills through real-world applications, from foundational experiments to production-ready
+            systems.
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto space-y-16">
-          <div>
+        <div className="space-y-20">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="grid lg:grid-cols-2 gap-0 lg:gap-8 items-stretch">
+              <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="relative overflow-hidden rounded-xl lg:rounded-2xl h-96 lg:h-auto order-2 lg:order-1"
+              >
+                <img
+                  src={featuredProject.image || "/placeholder.svg"}
+                  alt={featuredProject.title}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="group relative overflow-hidden rounded-xl border-2 border-yellow-500/50 bg-card hover:border-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-500/20 hover:shadow-2xl"
-              onMouseEnter={() => setActiveProject(featuredProject.id)}
-              onMouseLeave={() => setActiveProject(null)}
-            >
-              <div className="absolute top-4 left-4 z-20 flex gap-2">
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/50 tracking-wider">
-                  Featured
-                </span>
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                  Full Stack
-                </span>
-              </div>
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+                  className="absolute top-6 right-6 z-10"
+                >
+                  <Badge className="bg-yellow-500 text-black font-semibold shadow-lg">
+                    <Star className="w-3 h-3 mr-1 fill-current" />
+                    Featured
+                  </Badge>
+                </motion.div>
+              </motion.div>
 
-              <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative aspect-video md:aspect-auto overflow-hidden">
-                  <img
-                    src={featuredProject.image}
-                    alt={featuredProject.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent md:bg-gradient-to-t md:from-black/80 md:via-black/60 md:to-transparent" />
+              <motion.div
+                initial={{ opacity: 0, x: 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex flex-col justify-center order-1 lg:order-2 lg:pl-8"
+              >
+                <div className="mb-6">
+                  <Badge variant="outline" className="border-yellow-500/50 text-yellow-300 mb-3">
+                    Full-Stack Project
+                  </Badge>
+                  <h3 className="text-4xl lg:text-5xl font-bold mb-4">{featuredProject.title}</h3>
                 </div>
 
-                <div className="relative p-6 md:p-8 flex flex-col">
-                  <h3 className="text-2xl font-bold mb-3 text-foreground">{featuredProject.title}</h3>
+                <p className="text-muted-foreground text-lg mb-6 leading-relaxed max-w-lg">
+                  {featuredProject.description}
+                </p>
 
-                  <p className="text-muted-foreground mb-4 flex-grow text-lg">{featuredProject.description}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
+                <div className="mb-8">
+                  <p className="text-sm font-semibold text-muted-foreground mb-3">Technologies</p>
+                  <div className="flex flex-wrap gap-2">
                     {featuredProject.technologies.map((tech, i) => (
-                      <span
+                      <Badge
                         key={i}
-                        className="px-2 py-1 text-xs rounded-full bg-yellow-500/10 text-yellow-200 border border-yellow-500/30"
+                        variant="secondary"
+                        className="bg-yellow-500/10 text-yellow-300 border border-yellow-500/30"
                       >
                         {tech}
-                      </span>
+                      </Badge>
                     ))}
                   </div>
-
-                  <div className="flex flex-wrap gap-4">
-                    <a
-                      href={featuredProject.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-4 py-2 rounded-md bg-yellow-500 text-black hover:bg-yellow-400 transition-colors font-semibold"
-                    >
-                      <ExternalLink size={16} />
-                      <span>Live Demo</span>
-                    </a>
-
-                    <a
-                      href={featuredProject.codeLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 px-4 py-2 rounded-md bg-card border border-yellow-500/50 hover:border-yellow-400 hover:bg-card/80 transition-colors"
-                    >
-                      <Github size={16} />
-                      <span>View Code</span>
-                    </a>
-                  </div>
                 </div>
-              </div>
-            </motion.div>
-          </div>
 
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="mb-6"
-            >
-              <div className="flex items-center gap-3 mb-2">
+                <div className="flex flex-wrap gap-3">
+                  <Button asChild className="bg-yellow-500 hover:bg-yellow-400 text-black">
+                    <a href={featuredProject.demoLink} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Live Demo
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-yellow-500/30 hover:border-yellow-400 bg-transparent"
+                  >
+                    <a href={featuredProject.codeLink} target="_blank" rel="noopener noreferrer">
+                      <Github className="mr-2 h-4 w-4" />
+                      View Code
+                    </a>
+                  </Button>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="mb-12 max-w-2xl">
+              <div className="flex items-center gap-3 mb-3">
                 <TrendingUp className="w-5 h-5 text-primary" />
-                <h3 className="text-xl font-bold text-foreground">Growth Journey</h3>
+                <Badge variant="outline">Growth Journey</Badge>
               </div>
+              <h3 className="text-3xl lg:text-4xl font-bold mb-4">Developer Evolution</h3>
               <p className="text-muted-foreground">
-                Watch my progression as a developer through three iterations of the same project, showcasing my evolving
-                skills and understanding of modern web development.
+                Three iterations of the same project, showcasing my progression from vanilla JavaScript to modern
+                frameworks.
               </p>
-            </motion.div>
+            </div>
 
-            <div className="grid grid-cols-1 gap-12">
+            <div className="space-y-16">
               {growthProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`group relative overflow-hidden rounded-xl border border-border/40 bg-card hover:border-primary/20 transition-all duration-300 ${
-                    project.isOriginal ? "md:ml-12" : ""
-                  }`}
-                  onMouseEnter={() => setActiveProject(project.id)}
-                  onMouseLeave={() => setActiveProject(null)}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group"
                 >
-                  <div className="absolute top-4 left-4 z-20 flex gap-2 items-center">
-                    <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 border border-primary/30 text-xs font-bold text-primary">
-                      {project.growthStage}
-                    </div>
-                    <span
-                      className={`px-3 py-1 text-xs font-medium rounded-full ${
-                        project.type === "frontend"
-                          ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
-                          : "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                  <div
+                    className={`grid lg:grid-cols-2 gap-0 lg:gap-8 items-stretch ${
+                      index % 2 === 0 ? "lg:auto-cols-auto" : "lg:auto-cols-auto"
+                    }`}
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.1 + 0.1 }}
+                      className={`relative overflow-hidden rounded-lg h-80 lg:h-96 ${
+                        index % 2 === 1 ? "lg:order-2" : "lg:order-1"
                       }`}
                     >
-                      {project.type === "frontend" ? "Frontend" : "Full Stack"}
-                    </span>
-                  </div>
-
-                  {project.isOriginal && (
-                    <div className="absolute -top-12 left-8 h-12 w-0.5 bg-primary/50 hidden md:block"></div>
-                  )}
-                  {project.isOriginal && (
-                    <div className="absolute -top-6 left-8 transform -translate-x-1/2 hidden md:flex items-center justify-center">
-                      <div className="bg-card border border-primary/50 rounded-full p-1">
-                        <span className="text-primary">→</span>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="grid md:grid-cols-2 gap-0">
-                    <div className="relative aspect-video md:aspect-auto overflow-hidden">
                       <img
-                        src={project.image}
+                        src={project.image || "/placeholder.svg"}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent md:bg-gradient-to-t md:from-black/80 md:via-black/60 md:to-transparent" />
-                    </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-                    <div className="relative p-6 md:p-8 flex flex-col">
-                      <h3 className="text-2xl font-bold mb-3 text-foreground">{project.title}</h3>
+                      <motion.div
+                        animate={{ rotate: [0, 5, 0] }}
+                        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
+                        className="absolute top-4 left-4"
+                      >
+                        <div className="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-lg font-bold text-primary shadow-lg">
+                          {project.growthStage}
+                        </div>
+                      </motion.div>
+                    </motion.div>
 
-                      <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
+                    <motion.div
+                      initial={{ opacity: 0, x: index % 2 === 0 ? 60 : -60 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
+                      className={`flex flex-col justify-center py-6 lg:py-0 ${
+                        index % 2 === 1 ? "lg:order-1 lg:pr-8" : "lg:order-2 lg:pl-8"
+                      }`}
+                    >
+                      <div className="mb-4 flex items-center gap-2">
+                        <Code2 className="w-4 h-4 text-primary" />
+                        <span className="text-sm font-semibold text-muted-foreground">
+                          {project.growthStage === 1
+                            ? "Stage 1: Foundation"
+                            : project.growthStage === 2
+                              ? "Stage 2: React Era"
+                              : "Stage 3: Modern Tooling"}
+                        </span>
+                      </div>
 
-                      <div className="flex flex-wrap gap-2 mb-6">
+                      <h4 className="text-2xl lg:text-3xl font-bold mb-3">{project.title}</h4>
+                      <p className="text-muted-foreground text-base mb-6 leading-relaxed">{project.description}</p>
+
+                      <div className="mb-6 flex flex-wrap gap-2">
                         {project.technologies.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-1 text-xs rounded-full bg-primary/10 border border-primary/20"
-                          >
+                          <Badge key={i} variant="secondary" className="text-xs">
                             {tech}
-                          </span>
+                          </Badge>
                         ))}
                       </div>
 
-                      <div className="flex flex-wrap gap-4">
-                        {project.demoLink && (
-                          <a
-                            href={project.demoLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1 px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                          >
-                            <ExternalLink size={16} />
-                            <span>Live Demo</span>
+                      <div className="flex flex-wrap gap-3">
+                        <Button asChild size="sm">
+                          <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                            Live Demo
                           </a>
-                        )}
-
-                        <a
-                          href={project.codeLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 px-4 py-2 rounded-md bg-card border border-border hover:bg-card/80 hover:border-primary/30 transition-colors"
-                        >
-                          <Github size={16} />
-                          <span>View Code</span>
-                        </a>
+                        </Button>
+                        <Button asChild size="sm" variant="outline">
+                          <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                            <Github className="mr-2 h-4 w-4" />
+                            Code
+                          </a>
+                        </Button>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
 
-                  {project.growthStage === 1 && (
-                    <div className="px-6 py-3 bg-card border-t border-border/40 text-sm text-muted-foreground">
-                      <span className="font-medium text-primary">Stage 1 - Foundation:</span> Pure HTML, JavaScript, and
-                      CSS without frameworks.
-                    </div>
-                  )}
-
-                  {project.growthStage === 2 && (
-                    <div className="px-6 py-3 bg-card border-t border-border/40 text-sm text-muted-foreground">
-                      <span className="font-medium text-primary">Stage 2 - React Era:</span> Introduction of React and
-                      React Router for component-based architecture.
-                    </div>
-                  )}
-
-                  {project.growthStage === 3 && (
-                    <div className="px-6 py-3 bg-card border-t border-border/40 text-sm text-muted-foreground">
-                      <span className="font-medium text-primary">Stage 3 - Modern Tooling:</span> Advanced React with
-                      Tailwind CSS, shadcn/ui, and other modern libraries.
-                    </div>
-                  )}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+                    className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/10"
+                  >
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-semibold text-primary">
+                        {project.growthStage === 1
+                          ? "Pure Web Fundamentals"
+                          : project.growthStage === 2
+                            ? "Component Architecture"
+                            : "Modern Development"}
+                      </span>
+                      {project.growthStage === 1 &&
+                        ": Built with vanilla HTML, JavaScript, and CSS to understand DOM manipulation and core web concepts."}
+                      {project.growthStage === 2 &&
+                        ": Introduced React and routing for better code organization and component reusability."}
+                      {project.growthStage === 3 &&
+                        ": Advanced with modern libraries, animation frameworks, and state management solutions."}
+                    </p>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-20 pt-12 border-t border-border/40 text-center"
         >
-          <a
-            href="https://github.com/LIZEWESKI"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card hover:bg-card/80 border border-border hover:border-primary/30 transition-colors"
-          >
-            <Github size={18} />
-            <span>View More on GitHub</span>
-            <span>→</span>
-          </a>
+          <p className="text-muted-foreground mb-6">Want to see more of my work?</p>
+          <Button asChild size="lg" variant="outline">
+            <a href="https://github.com/LIZEWESKI" target="_blank" rel="noopener noreferrer">
+              <Github className="mr-2 h-4 w-4" />
+              View More on GitHub
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </a>
+          </Button>
         </motion.div>
       </div>
     </section>

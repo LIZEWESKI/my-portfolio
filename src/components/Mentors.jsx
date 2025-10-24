@@ -119,6 +119,7 @@ export function Mentors() {
                     {mentor.icon}
                   </div>
 
+                  
                   <div className="flex flex-wrap justify-center gap-2 mt-2">
                     {mentor.expertise.slice(0, 2).map((skill, i) => (
                       <span
@@ -140,6 +141,9 @@ export function Mentors() {
 
                 <div className="p-6 flex-grow">
                   <div className="mb-4">
+                    <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
+                      Expertise
+                    </p>
                     <div className="flex flex-wrap gap-2 mb-3">
                       {mentor.expertise.map((skill, i) => (
                         <span
@@ -156,6 +160,9 @@ export function Mentors() {
 
                 {/* Mentor Links */}
                 <div className="p-4 border-t border-border/40 mt-auto">
+                  <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
+                    Follow
+                  </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       {mentor.links.map((link, i) => (
@@ -171,18 +178,6 @@ export function Mentors() {
                         </a>
                       ))}
                     </div>
-                    <span
-                      className={`text-xs font-medium 
-                      ${
-                        mentor.color === "green"
-                          ? "text-green-400"
-                          : mentor.color === "purple"
-                            ? "text-purple-400"
-                            : "text-red-400"
-                      }`}
-                    >
-                      Mentor
-                    </span>
                   </div>
                 </div>
               </div>
