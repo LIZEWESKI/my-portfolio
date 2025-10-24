@@ -68,7 +68,7 @@ export function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
+    <section id="projects" className="py-8 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ export function Projects() {
           </p>
         </motion.div>
 
-        <div className="space-y-20">
+        <div className="space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -316,7 +316,7 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20 pt-12 border-t border-border/40 text-center"
+          className="mt-6 pt-2 border-t border-border/40 text-center"
         >
           <p className="text-muted-foreground mb-6">Want to see more of my work?</p>
           <Button asChild size="lg" variant="outline">

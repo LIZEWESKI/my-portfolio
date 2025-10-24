@@ -101,7 +101,7 @@ export function Contacts() {
   }
 
   return (
-    <section className="py-20 relative" id="contact">
+    <section className="py-6 relative" id="contact">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
