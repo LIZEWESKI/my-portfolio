@@ -72,8 +72,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-muted-foreground text-base md:text-lg max-w-xl mb-8 leading-relaxed"
             >
-              Enthusiastic about using modern technologies to create sophisticated, effective web applications.
-              Specializing in full-stack and frontend development with a passion for building elegant solutions.
+              Just a stutter who lacks communication skills but found comfort in coding - diving deep into my thoughts to find ways to solve people's problems through building websites :)
             </motion.p>
 
             <motion.div
