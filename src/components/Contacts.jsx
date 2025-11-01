@@ -1,10 +1,10 @@
 import { useState, useRef } from "react"
 import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion"
-import { Send, MessageSquare, Github, Linkedin, Check, Sparkles, Star, X } from "lucide-react"
+import { Send, MessageSquare, Github, Linkedin, Check, Sparkles, Star, X, Mail, Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import Faq from "./Faq"
+import { toast, Toaster } from "sonner"
 
 export function Contacts() {
   const [formState, setFormState] = useState({
@@ -12,6 +12,7 @@ export function Contacts() {
     email: "",
     message: "",
   })
+  const [copied, setCopied] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
   const [activeTab, setActiveTab] = useState("form")
@@ -62,6 +63,18 @@ export function Contacts() {
       console.error("Error:", e);
     }
   };
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("badrnoukh@gmail.com")
+    setCopied(true)
+
+    toast("Email copied to clipboard",{
+      description: "You can now paste it into your email client",
+    })
+
+    setTimeout(() => setCopied(false), 2000)
+  }
+
   const SuccessConfetti = () => {
     return (
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -125,10 +138,31 @@ export function Contacts() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div className="bg-card border border-border/40 rounded-xl p-6 h-full">
-                <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+            <div className="bg-card border border-border/40 rounded-xl p-6 h-full">
+              <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+              <div className="space-y-6">
+                  {/* Email */}
+                  <div className="group">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
+                        <Mail size={18} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-medium text-muted-foreground mb-1">Email</h4>
+                        <div className="flex items-center gap-2">
+                          <p className="text-foreground">badrnoukh [at] gmail [dot] com</p>
+                          <button
+                            onClick={copyEmail}
+                            className="text-muted-foreground hover:text-foreground transition-colors"
+                            aria-label="Copy email"
+                          >
+                            {copied ? <Check size={14} className="text-green-400" /> : <Copy size={14} />}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                <div className="space-y-6">
                   <div>
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
@@ -146,10 +180,20 @@ export function Contacts() {
                             <Github size={16} />
                             <span>GitHub</span>
                           </a>
+                          <a
+                            href="https://www.linkedin.com/in/badr-lizeweski"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
+                          >
+                            <Linkedin size={16} />
+                            <span>LinkedIn</span>
+                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
+                
 
                   <div className="pt-4 border-t border-border/40">
                     <h4 className="text-sm font-medium mb-2">Current Availability</h4>
@@ -168,9 +212,11 @@ export function Contacts() {
                       </div>
                     </div>
                   </div>
-                </div>
+              
               </div>
+            </div>
             </motion.div>
+
 
             <motion.div
               className="lg:col-span-3 relative"
@@ -371,46 +417,51 @@ export function Contacts() {
                         <p className="text-muted-foreground">Choose a platform to send a direct message:</p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <a
-                            href="https://github.com/LIZEWESKI"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
-                          >
-                            <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                              <Github size={18} />
-                            </div>
-                            <div>
-                              <h4 className="font-medium">GitHub</h4>
-                              <p className="text-sm text-muted-foreground">Code collaboration</p>
-                            </div>
-                          </a>
+                            <a
+                              href="https://www.linkedin.com/in/badr-lizeweski"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
+                            >
+                              <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
+                                <Linkedin size={18} />
+                              </div>
+                              <div>
+                                <h4 className="font-medium">LinkedIn</h4>
+                                <p className="text-sm text-muted-foreground">Professional network</p>
+                              </div>
+                            </a>
 
-                          <div className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border">
-                            <div className="w-10 h-10 rounded-full bg-gray-700/50 border border-gray-600 flex items-center justify-center text-gray-400 shrink-0">
-                              <X size={18} />
-                            </div>
-                            <div>
-                              <h4 className="font-medium text-gray-400">LinkedIn</h4>
-                              <p className="text-sm text-gray-500">Not expected to be</p>
-                            </div>
-                          </div>
+                            <a
+                              href="https://github.com/LIZEWESKI"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
+                            >
+                              <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
+                                <Github size={18} />
+                              </div>
+                              <div>
+                                <h4 className="font-medium">GitHub</h4>
+                                <p className="text-sm text-muted-foreground">Code collaboration</p>
+                              </div>
+                            </a>
 
-                          <div className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border">
-                            <div className="w-10 h-10 rounded-full bg-gray-700/50 border border-gray-600 flex items-center justify-center text-gray-400 shrink-0">
-                              <X size={18} />
+                            <div className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border">
+                              <div className="w-10 h-10 rounded-full bg-gray-700/50 border border-gray-600 flex items-center justify-center text-gray-400 shrink-0">
+                                <X size={18} />
+                              </div>
+                              <div>
+                                <h4 className="font-medium text-gray-400">Discord</h4>
+                                <p className="text-sm text-gray-500">Coming soon</p>
+                              </div>
                             </div>
-                            <div>
-                              <h4 className="font-medium text-gray-400">Discord</h4>
-                              <p className="text-sm text-gray-500">Coming soon</p>
-                            </div>
-                          </div>
                         </div>
 
                         <div className="pt-4 mt-4 border-t border-border/40">
                           <h4 className="font-medium mb-3">Preferred Contact Method</h4>
                           <p className="text-sm text-muted-foreground">
-                            For professional inquiries, email is the fastest way to reach me. For
+                            For professional inquiries, LinkedIn or email are the fastest ways to reach me. For
                             code-related discussions, GitHub is preferred.
                           </p>
                         </div>
@@ -421,7 +472,7 @@ export function Contacts() {
               </div>
             </motion.div>
           </div>
-          {/* <Faq /> */}
+          <Toaster/>
         </div>
       </div>
     </section>

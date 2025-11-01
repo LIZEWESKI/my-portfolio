@@ -90,7 +90,7 @@ export function Hero() {
               </Button>
 
               <Button asChild variant="outline">
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/badr-lizeweski/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="mr-2 h-4 w-4" />
                   LinkedIn
                 </a>
