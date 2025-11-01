@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import CarthsNoah from "../assets/carths-noah.png"
 import RickNdMortyMultiverse from "../assets/multiverse.png"
 import RickNdMortyCards from "../assets/rick-nd-morty-cards.png"
-import Noir from "../assets/noir.png"
+import NoirThumbnail from "../assets/NoirThumbnail.png"
 
 export function Projects() {
   const featuredProject = {
@@ -13,7 +13,7 @@ export function Projects() {
     title: "Noir",
     description:
       "A stylish and up-to-date hotel booking system that lets users log in, browse rooms, manage reservations, and process payments safely. Includes an admin dashboard for managing rooms, reservations, and users. This full-stack project shows that I can make full applications that are ready for production.",
-    image: Noir,
+    image: NoirThumbnail,
     technologies: ["Laravel", "Inertia.js", "React", "Tailwind CSS", "MySQL", "PayPal API"],
     demoLink: "https://noir.lizeweski.me",
     codeLink: "https://github.com/LIZEWESKI/noir",
@@ -112,7 +112,7 @@ export function Projects() {
                   transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
                   className="absolute top-6 right-6 z-10"
                 >
-                  <Badge className="bg-yellow-500 text-black font-semibold shadow-lg">
+                  <Badge className="bg-noir text-black font-semibold shadow-lg">
                     <Star className="w-3 h-3 mr-1 fill-current" />
                     Featured
                   </Badge>
@@ -127,7 +127,7 @@ export function Projects() {
                 className="flex flex-col justify-center order-1 lg:order-2 lg:pl-8"
               >
                 <div className="mb-6">
-                  <Badge variant="outline" className="border-yellow-500/50 text-yellow-300 mb-3">
+                  <Badge variant="outline" className="border-noir/50 text-noir mb-3">
                     Full-Stack Project
                   </Badge>
                   <h3 className="text-4xl lg:text-5xl font-bold mb-4">{featuredProject.title}</h3>
@@ -144,7 +144,7 @@ export function Projects() {
                       <Badge
                         key={i}
                         variant="secondary"
-                        className="bg-yellow-500/10 text-yellow-300 border border-yellow-500/30"
+                        className="bg-noir/10 text-noir border border-noir/30"
                       >
                         {tech}
                       </Badge>
@@ -153,7 +153,7 @@ export function Projects() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Button asChild className="bg-yellow-500 hover:bg-yellow-400 text-black">
+                  <Button asChild className="bg-noir hover:bg-noir text-black">
                     <a href={featuredProject.demoLink} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Live Demo
@@ -162,7 +162,7 @@ export function Projects() {
                   <Button
                     asChild
                     variant="outline"
-                    className="border-yellow-500/30 hover:border-yellow-400 bg-transparent"
+                    className="border-noir/30 hover:border-noir bg-transparent"
                   >
                     <a href={featuredProject.codeLink} target="_blank" rel="noopener noreferrer">
                       <Github className="mr-2 h-4 w-4" />
