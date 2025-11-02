@@ -6,6 +6,7 @@ import CarthsNoah from "../assets/carths-noah.png"
 import RickNdMortyMultiverse from "../assets/multiverse.png"
 import RickNdMortyCards from "../assets/rick-nd-morty-cards.png"
 import NoirThumbnail from "../assets/NoirThumbnail.png"
+import NoirMockup from "../assets/NoirMockup.png"
 
 export function Projects() {
   const featuredProject = {
@@ -13,7 +14,7 @@ export function Projects() {
     title: "Noir",
     description:
       "A stylish and up-to-date hotel booking system that lets users log in, browse rooms, manage reservations, and process payments safely. Includes an admin dashboard for managing rooms, reservations, and users. This full-stack project shows that I can make full applications that are ready for production.",
-    image: NoirThumbnail,
+    image: NoirMockup,
     technologies: ["Laravel", "Inertia.js", "React", "Tailwind CSS", "MySQL", "PayPal API"],
     demoLink: "https://noir.lizeweski.me",
     codeLink: "https://github.com/LIZEWESKI/noir",
