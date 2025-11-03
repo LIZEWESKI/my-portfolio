@@ -25,45 +25,14 @@ export function Projects() {
 
   const growthProjects = [
     {
-      id: 1,
-      title: "Carths Noah",
-      description:
-        "This is the first Rick and Morty character explorer I made using only HTML, JavaScript, and CSS. This basic project shows what I knew about web development and DOM manipulation before I learned about any frameworks or libraries.",
-      image: CarthsNoah,
-      technologies: ["HTML", "Vanilla JavaScript", "CSS", "Rick & Morty API"],
-      demoLink: "https://darthnoah.lizeweski.me/",
-      codeLink: "https://github.com/LIZEWESKI/darthsnoah",
-      featured: false,
-      type: "frontend",
-      isOriginal: true,
-      growthStage: 1,
-    },
-    {
-      id: 2,
-      title: "Rick and Morty Cards",
-      description:
-        "This is the second version of my Rick and Morty explorer that was built using React and React Router. This version shows how I've improved my use of client-side routing and component-based architecture while preserving unique styling using only CSS.",
-      image: RickNdMortyCards,
-      technologies: ["React", "React Router", "Pure CSS", "Context API"],
-      demoLink: "https://darth-ram.netlify.app/",
-      codeLink: "https://github.com/LIZEWESKI/Rick-nd-Morty/tree/main",
-      featured: false,
-      type: "frontend",
-      isOriginal: true,
-      growthStage: 2,
-    },
-    {
-      id: 3,
       title: "Rick and Morty Multiverse Cards",
       description:
-        "The Rick and Morty universe. This is the redesigned version using modern UI libraries for better UX and developer workflow.",
+        "A React application exhibit characters from the Rick and Morty universe. This is the redesigned version using modern UI libraries for better UX and developer workflow.",
       image: RickNdMortyMultiverse,
       technologies: ["React", "React Router", "Tailwind CSS", "shadcn/ui", "Framer Motion", "React Query"],
-      demoLink: "https://multiversecards.vercel.app/",
+      demoLink: "https://multiverse.lizeweski.me/",
       codeLink: "https://github.com/LIZEWESKI/Rick-nd-Morty",
-      featured: true,
       type: "frontend",
-      hasOriginal: true,
       growthStage: 3,
     },
   ]
@@ -181,18 +150,6 @@ export function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="mb-12 max-w-2xl">
-              <div className="flex items-center gap-3 mb-3">
-                <TrendingUp className="w-5 h-5 text-primary" />
-                <Badge variant="outline">Growth Journey</Badge>
-              </div>
-              <h3 className="text-3xl lg:text-4xl font-bold mb-4">Developer Evolution</h3>
-              <p className="text-muted-foreground">
-                Three iterations of the same project, showcasing my progression from vanilla JavaScript to modern
-                frameworks.
-              </p>
-            </div>
-
             <div className="space-y-16">
               {growthProjects.map((project, index) => (
                 <motion.div
@@ -223,16 +180,6 @@ export function Projects() {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-                      <motion.div
-                        animate={{ rotate: [0, 5, 0] }}
-                        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-                        className="absolute top-4 left-4"
-                      >
-                        <div className="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-lg font-bold text-primary shadow-lg">
-                          {project.growthStage}
-                        </div>
-                      </motion.div>
                     </motion.div>
 
                     <motion.div
@@ -244,26 +191,21 @@ export function Projects() {
                         index % 2 === 1 ? "lg:order-1 lg:pr-8" : "lg:order-2 lg:pl-8"
                       }`}
                     >
-                      <div className="mb-4 flex items-center gap-2">
-                        <Code2 className="w-4 h-4 text-primary" />
-                        <span className="text-sm font-semibold text-muted-foreground">
-                          {project.growthStage === 1
-                            ? "Stage 1: Foundation"
-                            : project.growthStage === 2
-                              ? "Stage 2: React Era"
-                              : "Stage 3: Modern Tooling"}
-                        </span>
-                      </div>
-
+                    <Badge variant="outline" className="border-primary/50 text-primary mb-3">
+                      Front-End Project
+                    </Badge>
                       <h4 className="text-2xl lg:text-3xl font-bold mb-3">{project.title}</h4>
                       <p className="text-muted-foreground text-base mb-6 leading-relaxed">{project.description}</p>
 
-                      <div className="mb-6 flex flex-wrap gap-2">
-                        {project.technologies.map((tech, i) => (
-                          <Badge key={i} variant="secondary" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
+                      <div className="mb-8">
+                        <p className="text-sm font-semibold text-muted-foreground mb-3">Technologies</p>
+                        <div className="flex flex-wrap gap-2"> 
+                          {project.technologies.map((tech, i) => (
+                            <Badge key={i} variant="secondary" className="text-xs">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
 
                       <div className="flex flex-wrap gap-3">
@@ -282,30 +224,6 @@ export function Projects() {
                       </div>
                     </motion.div>
                   </div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                    className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/10"
-                  >
-                    <p className="text-sm text-muted-foreground">
-                      <span className="font-semibold text-primary">
-                        {project.growthStage === 1
-                          ? "Pure Web Fundamentals"
-                          : project.growthStage === 2
-                            ? "Component Architecture"
-                            : "Modern Development"}
-                      </span>
-                      {project.growthStage === 1 &&
-                        ": Built with vanilla HTML, JavaScript, and CSS to understand DOM manipulation and core web concepts."}
-                      {project.growthStage === 2 &&
-                        ": Introduced React and routing for better code organization and component reusability."}
-                      {project.growthStage === 3 &&
-                        ": Advanced with modern libraries, animation frameworks, and state management solutions."}
-                    </p>
-                  </motion.div>
                 </motion.div>
               ))}
             </div>
