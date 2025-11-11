@@ -1,11 +1,8 @@
 import { motion } from "framer-motion"
-import { Github, ExternalLink, Star, TrendingUp, Code2 } from "lucide-react"
+import { Github, ExternalLink, Star} from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import CarthsNoah from "../assets/carths-noah.png"
 import RickNdMortyMultiverse from "../assets/multiverse.png"
-import RickNdMortyCards from "../assets/rick-nd-morty-cards.png"
-import NoirThumbnail from "../assets/NoirThumbnail.png"
 import NoirMockup from "../assets/NoirMockup.png"
 
 export function Projects() {
