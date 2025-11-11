@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 export function Footer() {
   const [isHovering, setIsHovering] = useState(false)
   const [isDownloading, setIsDownloading] = useState(false)
+  const [selectedLanguage, setSelectedLanguage] = useState("en")
   const currentYear = new Date().getFullYear()
 
   const scrollToTop = () => {
@@ -15,13 +16,15 @@ export function Footer() {
     })
   }
 
-  const handleDownloadCV = () => {
+  const handleDownloadCV = (language) => {
     setIsDownloading(true)
 
-    const cvPath = "/badr-cv-resume.pdf"
+    const cvPath = language === "en" ? "/CV-English.pdf" : "/CV-French.pdf"
+    const fileName = language === "en" ? "Badr-Noukh-CV-EN.pdf" : "Badr-Noukh-CV-FR.pdf"
+
     const link = document.createElement("a")
     link.href = cvPath
-    link.download = "BadrNoukh-CV.pdf"
+    link.download = fileName
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -56,10 +59,50 @@ export function Footer() {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
+              <div className="flex items-center gap-2 bg-muted/40 p-1 rounded-lg border border-border/50">
+                <motion.button
+                  onClick={() => setSelectedLanguage("en")}
+                  className={`relative px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                    selectedLanguage === "en" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {selectedLanguage === "en" && (
+                    <motion.div
+                      layoutId="language-bg"
+                      className="absolute inset-0 bg-primary/10 rounded-md -z-10"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                  EN
+                </motion.button>
+
+                <div className="w-px h-6 bg-border/30" />
+
+                <motion.button
+                  onClick={() => setSelectedLanguage("fr")}
+                  className={`relative px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                    selectedLanguage === "fr" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {selectedLanguage === "fr" && (
+                    <motion.div
+                      layoutId="language-bg"
+                      className="absolute inset-0 bg-primary/10 rounded-md -z-10"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                  FR
+                </motion.button>
+              </div>
+
               <Button
-                className="relative overflow-hidden group flex items-center gap-2 cursor-pointer"
+                className="relative overflow-hidden group flex items-center gap-2 mt-3 w-full"
                 size="lg"
-                onClick={handleDownloadCV}
+                onClick={() => handleDownloadCV(selectedLanguage)}
                 disabled={isDownloading}
               >
                 {isDownloading ? (
@@ -84,12 +127,12 @@ export function Footer() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    Downloading...
+                    {isDownloading ? "Downloading..." : "Download"}
                   </>
                 ) : (
                   <>
                     <FileDown size={18} />
-                    <span>Download CV</span>
+                    <span>{selectedLanguage === "en" ? "Download CV" : "Télécharger CV"}</span>
                   </>
                 )}
 
