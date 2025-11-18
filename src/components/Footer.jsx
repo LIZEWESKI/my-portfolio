@@ -179,15 +179,6 @@ export function Footer() {
             >
               <Github size={20} />
             </a>
-            <a
-              href="https://www.linkedin.com/in/badr-lizeweski"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
           </div>
 
           <code className="mt-6 text-xs text-muted-foreground">I have no coffee, and I must code.</code>

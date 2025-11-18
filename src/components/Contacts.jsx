@@ -180,15 +180,6 @@ export function Contacts() {
                             <Github size={16} />
                             <span>GitHub</span>
                           </a>
-                          <a
-                            href="https://www.linkedin.com/in/badr-lizeweski"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
-                          >
-                            <Linkedin size={16} />
-                            <span>LinkedIn</span>
-                          </a>
                         </div>
                       </div>
                     </div>
@@ -417,20 +408,6 @@ export function Contacts() {
                         <p className="text-muted-foreground">Choose a platform to send a direct message:</p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <a
-                              href="https://www.linkedin.com/in/badr-lizeweski"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
-                            >
-                              <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                                <Linkedin size={18} />
-                              </div>
-                              <div>
-                                <h4 className="font-medium">LinkedIn</h4>
-                                <p className="text-sm text-muted-foreground">Professional network</p>
-                              </div>
-                            </a>
 
                             <a
                               href="https://github.com/LIZEWESKI"
