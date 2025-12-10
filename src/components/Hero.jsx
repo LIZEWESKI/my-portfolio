@@ -88,6 +88,13 @@ export function Hero() {
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
+
+              <Button asChild variant="outline">
+                <a href="https://www.linkedin.com/in/badr-lizeweski/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="mr-2 h-4 w-4" />
+                  LinkedIn
+                </a>
+              </Button>
             </motion.div>
 
             <motion.div
