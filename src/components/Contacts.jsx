@@ -181,7 +181,7 @@ export function Contacts() {
                             <span>GitHub</span>
                           </a>
                           <a
-                            href="https://www.linkedin.com/in/badr-lizeweski"
+                            href="https://www.linkedin.com/in/lizewesk-badr"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-3 py-2 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
@@ -418,7 +418,7 @@ export function Contacts() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <a
-                              href="https://www.linkedin.com/in/badr-lizeweski"
+                              href="https://www.linkedin.com/in/lizewesk-badr"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex items-center gap-3 p-4 rounded-lg bg-card/80 border border-border hover:border-primary/30 hover:bg-card/60 transition-colors"
